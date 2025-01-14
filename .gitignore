@@ -426,3 +426,13 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode
+vsc_resource.h
+vsc_app.res
+vsc_app.rc
+SPTrCPP.vcxproj.filters
+SPTrCPP.vcxproj
+SPTrCPP.sln
+SPTrCPP.rc
+resource.h
+compress_resources.exe
+app.ico
