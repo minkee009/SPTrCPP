@@ -12,21 +12,21 @@ private:
 
     static std::string ResolvePath(const std::string& basePath);
     
-    // »ı¼ºÀÚ¸¦ privateÀ¸·Î
+    // ìƒì„±ìë¥¼ privateìœ¼ë¡œ
     ResourceLoader(const std::string& archivePath);
     
 public:
-    // º¹»ç »ı¼ºÀÚ¿Í ´ëÀÔ ¿¬»êÀÚ »èÁ¦
+    // ë³µì‚¬ ìƒì„±ìì™€ ëŒ€ì… ì—°ì‚°ì ì‚­ì œ
     ResourceLoader(const ResourceLoader&) = delete;
     ResourceLoader& operator=(const ResourceLoader&) = delete;
     
-    // ÃÊ±âÈ­ ÇÔ¼ö
+    // ì´ˆê¸°í™” í•¨ìˆ˜
     static bool Initialize(const std::string& archivePath);
     
-    // ÀÎ½ºÅÏ½º Á¢±ÙÀÚ
+    // ì¸ìŠ¤í„´ìŠ¤ ì ‘ê·¼ì
     static ResourceLoader* Get();
     
-    // ????? ???? ?????
+    // ë¦¬ì†ŒìŠ¤ ì ‘ê·¼ í•¨ìˆ˜ë“¤
     const std::vector<unsigned char>* GetResource(const std::string& name) const;
     bool HasResource(const std::string& name) const;
     std::vector<std::string> GetResourceNames() const;
