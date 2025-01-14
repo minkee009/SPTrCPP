@@ -1,12 +1,20 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,visualstudiocode
 
+### python ###
+resource_compressor/dist/
+resource_compressor/build/
+*.spec
+
+### Apple MacOS ###
+app/
+
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+#!.vscode/settings.json
+#!.vscode/tasks.json
+#!.vscode/launch.json
+#!.vscode/extensions.json
 !.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
@@ -56,11 +64,6 @@ bld/
 [Ll]ogs/
 buildopt-release/
 buildopt-debug/
-
-# python
-resource_compressor/dist/
-resource_compressor/build/
-*.spec
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
