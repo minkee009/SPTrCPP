@@ -8,28 +8,28 @@ namespace SPTr {
         sf::Vector2f start;
         sf::Vector2f end;
 
-        // ±âº» »ı¼ºÀÚ
+        // ê¸°ë³¸ ìƒì„±ì
         Line() : frontNormal(0.0f, 0.0f), start(0.0f, 0.0f), end(0.0f, 0.0f) {}
 
-        // start¿Í end¸¦ ¹Ş´Â »ı¼ºÀÚ
+        // startì™€ endë¥¼ ë°›ëŠ” ìƒì„±ì
         Line(const sf::Vector2f& start, const sf::Vector2f& end) 
             : frontNormal(0.0f, 0.0f), start(start), end(end) {}
 
-        // start, end, frontNormalÀ» ¹Ş´Â »ı¼ºÀÚ
+        // start, end, frontNormalì„ ë°›ëŠ” ìƒì„±ì
         Line(const sf::Vector2f& start, const sf::Vector2f& end, const sf::Vector2f& frontNormal) 
             : frontNormal(frontNormal), start(start), end(end) {}
 
-        // frontNormalÀÌ ¼³Á¤µÇ¾ú´ÂÁö È®ÀÎÇÏ´Â ¸Ş¼­µå
+        // frontNormalì´ ì„¤ì •ë˜ì—ˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ë©”ì„œë“œ
         bool hasFrontNormal() const {
             return frontNormal != sf::Vector2f(0.0f, 0.0f);
         }
 
-        // ¼±À» º¤ÅÍ·Î º¯È¯ÇÏ´Â ¸Ş¼­µå
+        // ï¿½ì„ ì„ ë²¡í„°ë¡œ ë³€í™˜í•˜ëŠ” ë©”ì„œë“œ
         sf::Vector2f toVector() const {
             return end - start;
         }
 
-        // Á¤Àû ¸Ş¼­µå: LineÀ» º¤ÅÍ·Î º¯È¯
+        // ì •ì  ë©”ì„œë“œ: Lineì„ ë²¡í„°ë¡œ ë³€í™˜
         static sf::Vector2f lineToVector(const Line& line) {
             return line.end - line.start;
         } 
