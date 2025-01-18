@@ -4,18 +4,16 @@
 #include "custom_physics.hpp"
 #include "resource_loader.hpp"
 
-
-int main() 
-{
-	if (!ResourceLoader::Initialize("resources.dat")) {
+int testLoop(){
+	if (!ResourceLoader::initialize("resources.dat")) {
 		SPDLOG_ERROR( "Failed to initialize resources" );
         return -1;
     }
-	
+
 	sf::RenderWindow window(sf::VideoMode({640,480}), L"메이플 모작");
 
 	// 창의 아이콘 설정
-	if (const auto* iconData = ResourceLoader::Get()->GetResource("icon.png")) {
+	if (const auto* iconData = ResourceLoader::get()->getResource("icon.png")) {
 		sf::Image icon;
 		if (icon.loadFromMemory(iconData->data(), iconData->size())) {
 			window.setIcon(icon);
@@ -37,14 +35,14 @@ int main()
 	sf::View currentView(sf::FloatRect({0, 0,}, {320, 240}));
 
 	sf::Font font;
-	if(const auto* fontData = ResourceLoader::Get()->GetResource("fonts/NanumGothic.ttf")) {
+	if(const auto* fontData = ResourceLoader::get()->getResource("fonts/NanumGothic.ttf")) {
 		if(!font.openFromMemory(fontData->data(),fontData->size())) {
 			SPDLOG_ERROR("font load error!");
 		}
 	}
 
 	sf::Texture characterTexture;
-	if(const auto* chTxData = ResourceLoader::Get()->GetResource("sprites/character_temp.png")) {
+	if(const auto* chTxData = ResourceLoader::get()->getResource("sprites/character_temp.png")) {
 		if(!characterTexture.loadFromMemory(chTxData->data(),chTxData->size(), false, sf::IntRect({0,0},{72,74}))){
 			SPDLOG_ERROR("texture load error!");
 		}
@@ -102,6 +100,10 @@ int main()
         window.display();
 	}
 
-	
 	return 0;
+}
+
+int main() 
+{
+	return testLoop();
 }

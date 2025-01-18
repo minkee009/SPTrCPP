@@ -24,7 +24,7 @@ namespace SPTr {
             return frontNormal != sf::Vector2f(0.0f, 0.0f);
         }
 
-        // �선을 벡터로 변환하는 메서드
+        // 선을 벡터로 변환하는 메서드
         sf::Vector2f toVector() const {
             return end - start;
         }
@@ -50,7 +50,7 @@ namespace SPTr {
     
     class CustomPhysics{
         public:
-            static bool Raycast2D(const sf::Vector2f& position,const sf::Vector2f& dir,float dist,const Line& line,CustomRaycastHit2D& hitInfo);
-            static float Cross2D(const sf::Vector2f& v1, const sf::Vector2f& v2);
+            static bool raycast2D(const sf::Vector2f& position,const sf::Vector2f& dir,float dist,const Line& line,CustomRaycastHit2D& hitInfo);
+            static float cross2D(const sf::Vector2f& v1, const sf::Vector2f& v2);
     };
 }

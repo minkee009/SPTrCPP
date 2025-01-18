@@ -10,7 +10,7 @@
 
 std::unique_ptr<ResourceLoader> ResourceLoader::instance = nullptr;
 
-std::string ResourceLoader::ResolvePath(const std::string& basePath){
+std::string ResourceLoader::resolvePath(const std::string& basePath){
 #if defined(__APPLE__)
     char path[1024];
     uint32_t size = sizeof(path);
@@ -66,10 +66,10 @@ ResourceLoader::ResourceLoader(const std::string& archivePath) {
     mz_zip_reader_end(&zip);
 }
 
-bool ResourceLoader::Initialize(const std::string& archivePath) {
+bool ResourceLoader::initialize(const std::string& archivePath) {
     if (!instance) {
         try {
-            instance = std::unique_ptr<ResourceLoader>(new ResourceLoader(ResolvePath(archivePath)));
+            instance = std::unique_ptr<ResourceLoader>(new ResourceLoader(resolvePath(archivePath)));
             return true;
         } catch (...) {
             return false;
@@ -78,20 +78,20 @@ bool ResourceLoader::Initialize(const std::string& archivePath) {
     return true;
 }
 
-ResourceLoader* ResourceLoader::Get() {
+ResourceLoader* ResourceLoader::get() {
     return instance.get();
 }
 
-const std::vector<unsigned char>* ResourceLoader::GetResource(const std::string& name) const {
+const std::vector<unsigned char>* ResourceLoader::getResource(const std::string& name) const {
     auto it = resources.find(name);
     return (it != resources.end()) ? &it->second : nullptr;
 }
 
-bool ResourceLoader::HasResource(const std::string& name) const {
+bool ResourceLoader::hasResource(const std::string& name) const {
     return resources.find(name) != resources.end();
 }
 
-std::vector<std::string> ResourceLoader::GetResourceNames() const {
+std::vector<std::string> ResourceLoader::getResourceNames() const {
     std::vector<std::string> names;
     names.reserve(resources.size());
     for (const auto& pair : resources) {
