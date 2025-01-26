@@ -42,8 +42,8 @@ int testLoop(){
 	}
 
 	sf::Texture characterTexture;
-	if(const auto* chTxData = ResourceLoader::get()->getResource("sprites/character_temp.png")) {
-		if(!characterTexture.loadFromMemory(chTxData->data(),chTxData->size(), false, sf::IntRect({0,0},{72,74}))){
+	if(const auto* chTxData = ResourceLoader::get()->getResource("sprites/character_dummy.png")) {
+		if(!characterTexture.loadFromMemory(chTxData->data(),chTxData->size(), false, sf::IntRect({0,0},{43,68}))){
 			SPDLOG_ERROR("texture load error!");
 		}
 	}
